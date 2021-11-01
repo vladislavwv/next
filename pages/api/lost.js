@@ -7,7 +7,7 @@ export default async (req, res) => {
     
     
 
-    const strapiRes = await fetch(`${API_URL}/wp-json/bdpwr/v1/reset-password`, {
+    const strapiRes = await fetch(`${API_URL}/wp-json/wp/v2/users/lostpassword`, {
       
       method: 'POST',
       headers: {
