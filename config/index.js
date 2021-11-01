@@ -1,4 +1,4 @@
-export const API_URL = 'https://my-wordpress-site.hqsite.online/sitetesta'
+export const API_URL = 'https://my-wordpress-site.hqsite.online/sitetest'
 
 export const NEXT_URL = 'https://nextwordpress.vercel.app'
 
