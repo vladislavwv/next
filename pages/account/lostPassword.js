@@ -9,7 +9,7 @@ import AuthContext from '@/context/AuthContext'
 import styles from '@/styles/AuthForm.module.css'
 
 export default function LostPassword() {
-  const [username, setUsername] = useState('')
+  const [email, setUsername] = useState('')
 
   const { lost, error } = useContext(AuthContext)
 
@@ -17,7 +17,7 @@ export default function LostPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    lost({ username })
+    lost({ email })
   }
 
   return (
@@ -29,11 +29,11 @@ export default function LostPassword() {
         <ToastContainer />
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor='username'>username</label>
+            <label htmlFor='email'>Email</label>
             <input
               type='text'
-              id='username'
-              value={username}
+              id='email'
+              value={email}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
