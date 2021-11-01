@@ -6,7 +6,7 @@ import Trainer from '@/components/Trainer'
 import Gitnessgallery from '@/components/Gitnessgallery'
 import Pattern from '@/components/Pattern'
 import Workout from '@/components/Workout'
-import { API_URL } from '@/config/index'
+import { API_URL } from '../config/index'
 
 
 
