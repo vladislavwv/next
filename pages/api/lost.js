@@ -3,18 +3,18 @@ import { API_URL } from '@/config/index'
 
 export default async (req, res) => {
   if (req.method === 'POST') {
-    const { user_login } = req.body
+    const { email } = req.body
     
     
 
-    const strapiRes = await fetch(`${API_URL}/wp-json/wp/v2/users/lostpassword?user_login=${user_login}`, {
+    const strapiRes = await fetch(`${API_URL}/wp-json/bdpwr/v1/reset-password`, {
       
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user_login
+        email
       }),
     })
     const data = await strapiRes.json()
@@ -22,7 +22,7 @@ export default async (req, res) => {
 
     if (strapiRes.ok) {
     
-      res.status(200).json({ user_login: data.user_login })
+      res.status(200).json({ email: data.email })
     } else {
       res
         .status(data.statusCode)
