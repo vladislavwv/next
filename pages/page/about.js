@@ -1,7 +1,7 @@
 //+
 import Link from 'next/link'
-import Layout from '@/components/Layout'
-import { API_URL } from '@/config/index'
+import Layout from '../../components/Layout'
+import { API_URL } from '../../config/index'
 
 export default function AboutPage({ home, menu }) {
   return (
