@@ -1,0 +1,30 @@
+{
+  "name": "dj-events-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "add": "^2.0.6",
+    "bootstrap": "^5.0.2",
+    "cookie": "^0.4.1",
+    "jquery": "^3.6.0",
+    "next": "^11.0.1",
+    "or": "^0.2.0",
+    "owl.carousel": "^2.3.4",
+    "qs": "^6.10.1",
+    "rc-banner-anim": "^2.4.5",
+    "rc-queue-anim": "^2.0.0",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
+    "react-dom": "^17.0.2",
+    "react-geocode": "^0.2.3",
+    "react-icons": "^4.2.0",
+    "react-map-gl": "^6.1.15",
+    "react-toastify": "^7.0.4",
+    "yarn": "^1.22.11"
+  }
+}
