@@ -58,13 +58,13 @@ export const AuthProvider = ({ children }) => {
   }
 
     // Lost password
-    const lost = async (user) => {
+    const lost = async (user_login) => {
       const res = await fetch(`${NEXT_URL}/api/lost`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(user),
+        body: JSON.stringify(user_login),
       })
   
       const data = await res.json()
