@@ -18,7 +18,7 @@ export default function Validate() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    validatePas({ code })
+    validatePas({ code, email })
   }
 
   return (
