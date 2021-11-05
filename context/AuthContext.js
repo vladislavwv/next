@@ -88,7 +88,7 @@ export const AuthProvider = ({ children }) => {
           })
       
           const data = await res.json()
-          console.log(data)
+          
           if (res.ok) {
             setUser(data.user)
             router.push('/account/setPassword')
@@ -97,7 +97,26 @@ export const AuthProvider = ({ children }) => {
             setError(null)
           }
         }
+        // Set password
+        const SetPassword = async ({code, email, password}) => {
+          const res = await fetch(`${NEXT_URL}/api/setPas`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({code, email, password}),
+          })
 
+          const data = await res.json()
+          
+          if (res.ok) {
+            setUser(data.user)
+            router.push('/account/login')
+          } else {
+            setError(data.message)
+            setError(null)
+          }
+        }
   // Logout user
   const logout = async () => {
     const res = await fetch(`${NEXT_URL}/api/logout`, {
@@ -123,7 +142,7 @@ export const AuthProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ user, error, register, login, logout, lost, validatePas }}>
+    <AuthContext.Provider value={{ user, error, register, login, logout, lost, validatePas, SetPassword }}>
       {children}
     </AuthContext.Provider>
   )
