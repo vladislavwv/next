@@ -3,34 +3,24 @@ import { API_URL } from '@/config/index'
 
 export default async (req, res) => {
   if (req.method === 'POST') {
-    const { email } = req.body
+    const { code } = req.body
     
     
 
-    const strapiRes = await fetch(`${API_URL}/wp-json/bdpwr/v1/reset-password`, {
+    const strapiRes = await fetch(`${API_URL}/wp-json/bdpwr/v1/validate-code`, {
       
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email
+        code
       }),
     })
     const data = await strapiRes.json()
   
 
     if (strapiRes.ok) {
-      res.setHeader(
-        'Set-Cookie',
-        cookie.serialize('email', data.email, {
-          httpOnly: true,
-          secure: process.env.NODE_ENV !== 'development',
-          maxAge: 100, // 100 sec
-          sameSite: 'strict',
-          path: '/',
-        })
-      )
       res.status(200).json({ email: data.email })
     } else {
       res

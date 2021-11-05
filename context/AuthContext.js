@@ -77,6 +77,26 @@ export const AuthProvider = ({ children }) => {
       }
     }
 
+        // Validate password
+        const lost = async (code) => {
+          const res = await fetch(`${NEXT_URL}/api/validatePas`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(code),
+          })
+      
+          const data = await res.json()
+          if (res.ok) {
+            setUser(data.user)
+            router.push('/account/setPassword')
+          } else {
+            setError(data.message)
+            setError(null)
+          }
+        }
+
   // Logout user
   const logout = async () => {
     const res = await fetch(`${NEXT_URL}/api/logout`, {
