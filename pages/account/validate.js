@@ -9,8 +9,7 @@ import AuthContext from '@/context/AuthContext'
 import styles from '@/styles/AuthForm.module.css'
 
 export default function Validate() {
-  const [email, setUsername] = useState('')
-  const [code, setUsername] = useState('')
+  const [code, setCode] = useState('')
 
   const { validatePas, error } = useContext(AuthContext)
 
@@ -35,7 +34,7 @@ export default function Validate() {
               type='text'
               id='code'
               value={code}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setCode(e.target.value)}
             />
           </div>
 
