@@ -3,7 +3,7 @@ import { API_URL } from '@/config/index'
 
 export default async (req, res) => {
   if (req.method === 'POST') {
-    const { code } = req.body
+    const { code, email } = req.body
     
     
 
@@ -14,14 +14,15 @@ export default async (req, res) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        code
+        code,
+        email
       }),
     })
     const data = await strapiRes.json()
   
 
     if (strapiRes.ok) {
-      res.status(200).json({ code: data.code })
+      res.status(200).json({ email: data.email })
     } else {
       res
         .status(data.statusCode)
