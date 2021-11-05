@@ -78,7 +78,7 @@ export const AuthProvider = ({ children }) => {
     }
 
         // Validate password
-        const lost = async (code) => {
+        const validatePas = async (code) => {
           const res = await fetch(`${NEXT_URL}/api/validatePas`, {
             method: 'POST',
             headers: {
@@ -122,7 +122,7 @@ export const AuthProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ user, error, register, login, logout, lost }}>
+    <AuthContext.Provider value={{ user, error, register, login, logout, lost, validatePas }}>
       {children}
     </AuthContext.Provider>
   )
