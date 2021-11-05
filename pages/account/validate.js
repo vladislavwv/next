@@ -10,6 +10,7 @@ import styles from '@/styles/AuthForm.module.css'
 
 export default function Validate() {
   const [code, setCode] = useState('')
+  const [email, setEmail] = useState('')
 
   const { validatePas, error } = useContext(AuthContext)
 
@@ -28,6 +29,15 @@ export default function Validate() {
         </h1>
         <ToastContainer />
         <form onSubmit={handleSubmit}>
+        <div>
+            <label htmlFor='email'>Email Address</label>
+            <input
+              type='email'
+              id='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
           <div>
             <label htmlFor='code'>Code</label>
             <input

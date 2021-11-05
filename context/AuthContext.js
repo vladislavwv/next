@@ -78,13 +78,13 @@ export const AuthProvider = ({ children }) => {
     }
 
         // Validate password
-        const validatePas = async (code) => {
+        const validatePas = async (code, email) => {
           const res = await fetch(`${NEXT_URL}/api/validatePas`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(code),
+            body: JSON.stringify({code, email}),
           })
       
           const data = await res.json()
