@@ -22,16 +22,6 @@ export default async (req, res) => {
   
 
     if (strapiRes.ok) {
-      res.setHeader(
-        'Set-Cookie',
-        cookie.serialize('email', data.token, {
-          httpOnly: true,
-          secure: process.env.NODE_ENV !== 'development',
-          maxAge: 100, // 100 sec
-          sameSite: 'strict',
-          path: '/',
-        })
-      )
       res.status(200).json({ email: data.email })
     } else {
       res
