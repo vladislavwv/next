@@ -78,7 +78,7 @@ export const AuthProvider = ({ children }) => {
     }
 
         // Validate password
-        const validatePas = async (code, email) => {
+        const validatePas = async ({code, email}) => {
           const res = await fetch(`${NEXT_URL}/api/validatePas`, {
             method: 'POST',
             headers: {
@@ -88,6 +88,7 @@ export const AuthProvider = ({ children }) => {
           })
       
           const data = await res.json()
+          console.log(data)
           if (res.ok) {
             setUser(data.user)
             router.push('/account/setPassword')

@@ -19,7 +19,7 @@ export default async (req, res) => {
       }),
     })
     const data = await strapiRes.json()
-    console.log(data)
+    
 
     if (strapiRes.ok) {
       res.status(200).json({ email: data.email })
