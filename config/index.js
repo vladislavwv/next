@@ -1,5 +1,5 @@
 export const API_URL = 'https://my-wordpress-site.hqsite.online/sitetest'
 
-export const NEXT_URL = 'https://nextwordpress.vercel.app'
+export const NEXT_URL = 'https://next-seven-rho.vercel.app'
 
 export const PER_PAGE = 5
