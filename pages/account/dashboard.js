@@ -30,7 +30,7 @@ export default function DashboardPage({ events, token }) {
 
   return (
     <Layout title='User Dashboard'>
-      {console.log(events)}
+      {console.log(parseCookies(req))}
       <h1>Hello {events.name}</h1>
       {/* <div className={styles.dash}>
         <h1>Dashboard</h1>

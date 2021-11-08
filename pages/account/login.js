@@ -7,16 +7,12 @@ import Link from 'next/link'
 import Layout from '@/components/Layout'
 import AuthContext from '@/context/AuthContext'
 import styles from '@/styles/AuthForm.module.css'
-import cookie from 'cookie'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const { login, error } = useContext(AuthContext)
-
-
-  console.log(cookie.parse)
 
   useEffect(() => error && toast.error(error))
 
