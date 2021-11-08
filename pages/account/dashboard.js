@@ -6,7 +6,7 @@ import Layout from '../../components/Layout'
 import { API_URL } from '../../config/index'
 import styles from '@/styles/Dashboard.module.css'
 
-export default function DashboardPage({ events, token }) {
+export default function DashboardPage({ events2, token }) {
   const router = useRouter()
 
   const deleteEvent = async (id) => {
