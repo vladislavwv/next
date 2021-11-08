@@ -16,7 +16,7 @@ export default function LoginPage() {
   const { login, error } = useContext(AuthContext)
 
 
-  console.log(cookie)
+  console.log(cookie.parse)
 
   useEffect(() => error && toast.error(error))
 
