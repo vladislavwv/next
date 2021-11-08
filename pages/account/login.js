@@ -23,6 +23,7 @@ export default function LoginPage() {
 
   return (
     <Layout title='User Login'>
+      {lonsole.log(cookie.parse(req.headers.cookie))}
       <div className={styles.auth}>
         <h1>
           <FaUser /> Log In
