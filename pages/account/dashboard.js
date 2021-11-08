@@ -30,8 +30,8 @@ export default function DashboardPage({ events, token }) {
 
   return (
     <Layout title='User Dashboard'>
-      {console.log(events)}
-      <h1>Hello {events[0].name}</h1>
+      {console.log(events2)}
+      <h1>Hello </h1>
       {/* <div className={styles.dash}>
         <h1>Dashboard</h1>
         <h3>My Events</h3>
@@ -47,21 +47,23 @@ export default function DashboardPage({ events, token }) {
 export async function getServerSideProps({ req }) {
   const { token } = parseCookies(req)
 
+
   const res = await fetch(`${API_URL}/wp-json/jwt-auth/v1/token`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
     },
   })
-
   const res2 = await fetch(`${API_URL}/wp-json/wp/v2/users/me`)
+  const events = await res.json()
+  const events2 = await res2.json()
 
-  const events = await res2.json()
 
   return {
     props: {
       events,
       token,
+      events2,
     },
   }
 }
