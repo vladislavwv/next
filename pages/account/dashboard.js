@@ -54,7 +54,9 @@ export async function getServerSideProps({ req }) {
     },
   })
 
-  const events = await res.json()
+  const res2 = await fetch(`${API_URL}/wp-json/wp/v2/users/me`)
+
+  const events = await res2.json()
 
   return {
     props: {
