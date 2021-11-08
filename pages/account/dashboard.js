@@ -31,7 +31,7 @@ export default function DashboardPage({ events, token }) {
   return (
     <Layout title='User Dashboard'>
       {console.log(events)}
-      <h1>Helloo {events[0].name}</h1>
+      <h1>Hello {events[0].name}</h1>
       {/* <div className={styles.dash}>
         <h1>Dashboard</h1>
         <h3>My Events</h3>
