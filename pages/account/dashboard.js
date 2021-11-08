@@ -13,7 +13,7 @@ export default function DashboardPage({ events, token }) {
   return (
     <Layout title='User Dashboard'>
       
-      <h1>Hello </h1>
+      <h1>Helloo </h1>
 
     </Layout>
   )
