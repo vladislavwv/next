@@ -48,7 +48,7 @@ export async function getServerSideProps({ req }) {
   const { token } = parseCookies(req)
 
   const res = await fetch(`${API_URL}/wp-json/wp/v2/users/me`, {
-    method: 'POST',
+    method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
     },
