@@ -13,7 +13,7 @@ export default async (req, res) => {
 
 
     const strapiRes = await fetch(`${API_URL}/wp-json/wp/v2/users/me`, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
       },
