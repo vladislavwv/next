@@ -12,7 +12,7 @@ export default async (req, res) => {
     const { token } = cookie.parse(req.headers.cookie)
 
 
-    const strapiRes = await fetch(`${API_URL}/wp-json/jwt-auth/v1/token?user_email=vlad3220919941919@gmail.com&password=5108`, {
+    const strapiRes = await fetch(`${API_URL}/wp-json/wp/v2/users/me`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,

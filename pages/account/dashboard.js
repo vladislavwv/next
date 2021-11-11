@@ -47,7 +47,7 @@ export default function DashboardPage({ events, token }) {
 export async function getServerSideProps({ req }) {
   const { token } = parseCookies(req)
 
-  const res = await fetch(`${API_URL}/wp-json/jwt-auth/v1/token?username=Vladislav&password=5108`, {
+  const res = await fetch(`${API_URL}/wp-json/wp/v2/users/me`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
