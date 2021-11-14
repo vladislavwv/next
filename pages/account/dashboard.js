@@ -45,7 +45,7 @@ export default function DashboardPage({ events, token }) {
 }
 
 export async function getServerSideProps({ req }) {
-  const { git add -A } = parseCookies(req)
+  const { token } = parseCookies(req)
 
   const res = await fetch(`${API_URL}/wp-json/wp/v2/users/me`, {
     method: 'GET',
