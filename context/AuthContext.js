@@ -52,7 +52,8 @@ export const AuthProvider = ({ children }) => {
       setUser(data.user)
       router.push('/account/dashboard')
     } else {
-      console.log(res)
+      console.log(data.message)
+      console.log(setError)
       setError(data.message)
       setError(null)
     }
