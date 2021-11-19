@@ -43,8 +43,6 @@ export default async (req, res) => {
         .json({ message: data.message[0].messages[0].message })
     }
 
-
-      res.status(200).json({ user: data.user })
    
   } else {
     res.setHeader('Allow', ['POST'])
