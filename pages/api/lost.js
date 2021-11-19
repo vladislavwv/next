@@ -5,7 +5,16 @@ export default async (req, res) => {
   if (req.method === 'POST') {
     const { email } = req.body
     
-    
+    res.setHeader(
+      'Set-Cookie',
+      cookie.serialize('token', email, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV !== 'development',
+        maxAge: 60 * 60 * 24 * 7, // 1 week
+        sameSite: 'strict',
+        path: '/',
+      })
+    )
 
     const strapiRes = await fetch(`${API_URL}/wp-json/bdpwr/v1/reset-password`, {
       
@@ -17,6 +26,7 @@ export default async (req, res) => {
         email
       }),
     })
+    
     const data = await strapiRes.json()
     console.log(data)
   
