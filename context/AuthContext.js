@@ -8,7 +8,7 @@ const AuthContext = createContext()
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [error, setError] = useState(null)
-
+  
   const router = useRouter()
 
   useEffect(() => checkUserLoggedIn(), [])
@@ -45,8 +45,11 @@ export const AuthProvider = ({ children }) => {
         password,
       }),
     })
+    console.log(res)
 
     const data = await res.json()
+
+    console.log(data)
 
     if (res.ok) {
       setUser(data.user)
@@ -55,6 +58,7 @@ export const AuthProvider = ({ children }) => {
       setError(data.message)
       setError(null)
     }
+    
   }
 
     // Lost password

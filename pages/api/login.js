@@ -4,6 +4,7 @@ import cookie from 'cookie'
 import { API_URL } from '../../config/index'
 
 export default async (req, res) => {
+ 
   if (req.method === 'POST') {
     const { identifier, password } = req.body
 
@@ -17,9 +18,8 @@ export default async (req, res) => {
         password,
       }),
     })
-
+    
     const data = await strapiRes.json()
-  
 
     if (strapiRes.ok) {
       // Set Cookie
@@ -37,9 +37,13 @@ export default async (req, res) => {
       res.status(200).json({ user: data.user })
     } else {
       res
-        .status(data.statusCode)
-        .json({ message: data.message[0].messages[0].message })
+        .status(data.data.status)
+        .json({ message: data.message })
     }
+
+
+      res.status(200).json({ user: data.user })
+   
   } else {
     res.setHeader('Allow', ['POST'])
     res.status(405).json({ message: `Method ${req.method} not allowed` })
