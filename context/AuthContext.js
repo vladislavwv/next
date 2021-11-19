@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
 
   // Login user
   const login = async ({ email: identifier, password }) => {
-    const res = await fetch(`https://next-word-pi.vercel.app/api/login`, {
+    const res = await fetch(`${NEXT_URL}/api/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
