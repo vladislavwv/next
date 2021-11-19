@@ -37,8 +37,8 @@ export default async (req, res) => {
       res.status(200).json({ user: data.user })
     } else {
       res
-        .status(data.data.status)
-        .json({ message: data.message })
+        .status(data.statusCode)
+        .json({ message: data.message[0].messages[0].message })
     }
 
 
