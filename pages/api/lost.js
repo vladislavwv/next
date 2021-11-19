@@ -18,13 +18,11 @@ export default async (req, res) => {
       }),
     })
     const data = await strapiRes.json()
+    console.log(data)
   
 
     if (strapiRes.ok) {
-      res.setHeader(
-        'Set-Cookie',
-        cookie.serialize('email', email)
-      )
+      
       res.status(200).json({ email: data.email })
     } else {
       res
