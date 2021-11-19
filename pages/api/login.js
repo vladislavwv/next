@@ -12,7 +12,6 @@ export default async (req, res) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
       },
       body: JSON.stringify({
         identifier,
@@ -21,7 +20,6 @@ export default async (req, res) => {
     })
     
     const data = await strapiRes.json()
-    
 
     if (strapiRes.ok) {
       // Set Cookie
@@ -39,8 +37,8 @@ export default async (req, res) => {
       res.status(200).json({ user: data.user })
     } else {
       res
-        .status(data.statusCode)
-        .json({ message: data.message[0].messages[0].message })
+        .status(data.data.status)
+        .json({ message: data.message })
     }
 
    
