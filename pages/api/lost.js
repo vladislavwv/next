@@ -18,22 +18,28 @@ export default async (req, res) => {
       }),
     })
     const data = await strapiRes.json()
-  
+    res.setHeader(
+      'Set-Cookie',
+      cookie.serialize('email', 'hello', {
+        httpOnly: true,
+        maxAge: 60 * 60 * 24 * 7
+      })
+    )
 
-    if (strapiRes.ok) {
-      res.setHeader(
-        'Set-Cookie',
-        cookie.serialize('email', 'hello', {
-          httpOnly: true,
-          maxAge: 60 * 60 * 24 * 7
-        })
-      )
-      res.status(200).json({ email: data.email })
-    } else {
-      res
-        .status(data.statusCode)
-        .json({ message: data.message[0].messages[0].message })
-    }
+    // if (strapiRes.ok) {
+    //   res.setHeader(
+    //     'Set-Cookie',
+    //     cookie.serialize('email', 'hello', {
+    //       httpOnly: true,
+    //       maxAge: 60 * 60 * 24 * 7
+    //     })
+    //   )
+    //   res.status(200).json({ email: data.email })
+    // } else {
+    //   res
+    //     .status(data.statusCode)
+    //     .json({ message: data.message[0].messages[0].message })
+    // }
 
 
   } else {
