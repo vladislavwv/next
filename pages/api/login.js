@@ -20,6 +20,18 @@ export default async (req, res) => {
     })
     
     const data = await strapiRes.json()
+    
+
+    res.setHeader(
+      'Set-Cookie',
+      cookie.serialize('token', data.token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV !== 'development',
+        maxAge: 60 * 60 * 24 * 7, // 1 week
+        sameSite: 'strict',
+        path: '/',
+      })
+    )
 
     if (strapiRes.ok) {
       // Set Cookie
