@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
 
   // Register user
   const register = async (user) => {
-    const res = await fetch(`${NEXT_URL}/api/register`, {
+    const res = await fetch(`https://next-word-pi.vercel.app/api/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,7 +39,6 @@ export const AuthProvider = ({ children }) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         identifier,
