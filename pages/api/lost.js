@@ -18,9 +18,11 @@ export default async (req, res) => {
       }),
     })
     const data = await strapiRes.json()
+
+
     res.setHeader(
       'Set-Cookie',
-      cookie.serialize('email', 'hello', {
+      cookie.serialize('email', email, {
         httpOnly: true,
         maxAge: 60 * 60 * 24 * 7
       })
