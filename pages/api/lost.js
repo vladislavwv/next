@@ -21,7 +21,9 @@ export default async (req, res) => {
   
 
     if (strapiRes.ok) {
-      res.status(200).json({ email: data.email })
+      res
+      .status(data.data.status)
+      .json({ message: data.message })
     } else {
       res
         .status(data.data.status)
