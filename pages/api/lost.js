@@ -2,9 +2,9 @@
 import { API_URL } from '@/config/index'
 
 export default async (req, res) => {
+  localStorage.setItem('myCat', 'Tom')
   if (req.method === 'POST') {
     const { email } = req.body
-    localStorage.setItem('myCat', 'Tom');
 
     const strapiRes = await fetch(`${API_URL}/wp-json/bdpwr/v1/reset-password`, {
       
