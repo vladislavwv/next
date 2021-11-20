@@ -10,9 +10,7 @@ import styles from '@/styles/AuthForm.module.css'
 
 export default function Validate() {
   const [code, setCode] = useState('')
-  if (typeof window !== 'undefined') {
-    const email = localStorage.getItem('email')
-  }
+  
 
   const { validatePas, error } = useContext(AuthContext)
 
@@ -20,6 +18,7 @@ export default function Validate() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const email = localStorage.getItem('email')
     validatePas({ code, email })
   }
 
