@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }) => {
       })
       
       const data = await res.json()
-      localStorage.setItem('myCat', email.email)
+      localStorage.setItem('email', email.email)
       if (res.ok) {
         setUser(data.user)
         router.push('/account/validate')
