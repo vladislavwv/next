@@ -9,8 +9,6 @@ import AuthContext from '@/context/AuthContext'
 import styles from '@/styles/AuthForm.module.css'
 
 export default function SetPassword() {
-  const [code, setCode] = useState('')
-  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const { SetPassword, error } = useContext(AuthContext)
@@ -19,6 +17,8 @@ export default function SetPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const email = localStorage.getItem('email')
+    const code = localStorage.getItem('code')
     SetPassword({ code, email, password })
   }
 
@@ -30,24 +30,6 @@ export default function SetPassword() {
         </h1>
         <ToastContainer />
         <form onSubmit={handleSubmit}>
-        <div>
-            <label htmlFor='code'>Code</label>
-            <input
-              type='text'
-              id='code'
-              value={code}
-              onChange={(e) => setCode(e.target.value)}
-            />
-          </div>
-        <div>
-            <label htmlFor='email'>Email Address</label>
-            <input
-              type='email'
-              id='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
           <div>
             <label htmlFor='password'>Password</label>
             <input
