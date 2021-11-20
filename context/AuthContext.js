@@ -63,6 +63,7 @@ export const AuthProvider = ({ children }) => {
 
     // Lost password
     const lost = async (email) => {
+      localStorage.setItem('myCat', 'Tom')
       const res = await fetch(`${NEXT_URL}/api/lost`, {
         method: 'POST',
         headers: {
