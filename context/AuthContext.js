@@ -94,10 +94,7 @@ export const AuthProvider = ({ children }) => {
           })
       
           const data = await res.json()
-          localStorage.setItem('code', data)
-          console.log(res)
-          console.log(code)
-          console.log(email)
+          localStorage.setItem('code', code)
           
           if (res.ok) {
             setUser(data.user)
