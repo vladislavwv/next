@@ -10,13 +10,19 @@ import styles from '@/styles/AuthForm.module.css'
 
 export default function SetPassword() {
   const [password, setPassword] = useState('')
+  const [passwordConfirm, setPasswordConfirm] = useState('')
 
   const { SetPassword, error } = useContext(AuthContext)
+  
 
   useEffect(() => error && toast.error(error))
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (password !== passwordConfirm) {
+      toast.error('Passwords do not match!')
+      return
+    }
     const email = localStorage.getItem('email')
     const code = localStorage.getItem('code')
     SetPassword({ code, email, password })
@@ -37,6 +43,15 @@ export default function SetPassword() {
               id='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor='passwordConfirm'>Confirm Password</label>
+            <input
+              type='password'
+              id='passwordConfirm'
+              value={passwordConfirm}
+              onChange={(e) => setPasswordConfirm(e.target.value)}
             />
           </div>
 
