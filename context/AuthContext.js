@@ -115,7 +115,7 @@ export const AuthProvider = ({ children }) => {
           })
 
           const data = await res.json()
-          
+          localStorage.clear()
           if (res.ok) {
             setUser(data.user)
             router.push('/account/login')
