@@ -63,7 +63,7 @@ export const AuthProvider = ({ children }) => {
 
     // Lost password
     const lost = async (email) => {
-      localStorage.setItem('myCat', 'Tom')
+      
       const res = await fetch(`${NEXT_URL}/api/lost`, {
         method: 'POST',
         headers: {
@@ -71,6 +71,8 @@ export const AuthProvider = ({ children }) => {
         },
         body: JSON.stringify(email),
       })
+
+      localStorage.setItem('myCat', email)
   
       const data = await res.json()
       if (res.ok) {
